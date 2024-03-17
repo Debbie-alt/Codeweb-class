@@ -1,0 +1,13 @@
+{
+      "favorites": [
+        {
+          "id": 1,
+          "title": "Movie Title 1",
+          "poster_path": "/path/to/poster1.jpg",
+          "overview": "Overview of Movie 1",
+          "release_date": "2022-01-01",
+          "rating": 8.5
+        }
+      ]
+    }
+    
