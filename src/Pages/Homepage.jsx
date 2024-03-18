@@ -11,6 +11,7 @@ const Homepage = () => {
       const [Query, setQuery] =useState('')
       const [SearchResults, setSearchResults]= useState([{}])
       const [movieSet, setMovieSet] = useState([])
+      
 
 
       const options = {
@@ -54,6 +55,7 @@ const Homepage = () => {
       <Navbar/>
       <Hero/>
       <Searchbar setQuery={setQuery}/>
+
       {/* <Loading  loading={loading}  setLoading={setLoading}/> */}
       <div className='space-y-24'>
       <Movies  SearchResults={SearchResults} movieSet={movieSet}/>  

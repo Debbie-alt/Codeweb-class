@@ -23,7 +23,7 @@ const Navbar = () => {
             <NavLink to="/TopRated" activeClassName="">
               Top Rated
             </NavLink>
-            <NavLink to="/Favorite" activeClassName="">
+            <NavLink to="/favorites" activeClassName="">
               Favorite
             </NavLink>
           </div>
@@ -51,7 +51,7 @@ const Navbar = () => {
           <NavLink to="/TopRated" activeClassName="active" className="text-lg">
             Top Rated
           </NavLink>
-          <NavLink to="/Favorite" activeClassName="active" className="text-lg">
+          <NavLink to="/favorites" activeClassName="active" className="text-lg">
             Favorite
           </NavLink>
         </div>

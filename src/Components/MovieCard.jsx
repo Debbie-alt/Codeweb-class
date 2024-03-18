@@ -1,13 +1,37 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
+import PopUp from "./PopUp";
+
 
 const MovieCard = ({ SearchResults, movieSet }) => {
   const navigate = useNavigate();
 
+  const [favorite, setFavorite] = useState({});
+  const [Popup, setPopup] = useState('hidden')
+  const [popupMessage, setPopupMessage] = useState("");
+
+  
+  const toggleFavorite = (movieId, movieName) => {
+    setFavorite((prevFavorites) => {
+      const updatedFavorites = { ...prevFavorites };
+      if (updatedFavorites[movieId]) {
+        delete updatedFavorites[movieId];
+      } else {
+        updatedFavorites[movieId] = true;
+      }
+      setPopupMessage(`${movieName} added to favorites.`);
+      setPopup('flex');
+      setTimeout(() => {
+        setPopup('hidden')
+      }, 2000);
+      return updatedFavorites;
+    });
+  };
+
+
   // Merge searchResults and popularMovies arrays
   const allMovies = [...SearchResults, ...movieSet];
-  const [favorite, setFavorite] = useState({});
 //   const favorites = {id, title, poster_path}
   
 //   const options ={
@@ -26,20 +50,13 @@ const MovieCard = ({ SearchResults, movieSet }) => {
 //   }
 
 
-  const toggleFavorite = (movieId) => {
-      setFavorite((prevFavorites) => {
-        const updatedFavorites = { ...prevFavorites };
-        if (updatedFavorites[movieId]) {
-          delete updatedFavorites[movieId];
-        } else {
-          updatedFavorites[movieId] = true;
-        }
-        return updatedFavorites;
-      });
-    };
+  
 
   return (
     <>
+      <PopUp movieName={movieSet.title} PopUp={Popup} popupMessage={popupMessage}/>
+      <div className="gap-10 grid grid-cols-1 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
       {allMovies.map((movie) => (
         <div
           className="h-full w-full mt-10 bg-black rounded-lg shadow-lg"
@@ -50,7 +67,7 @@ const MovieCard = ({ SearchResults, movieSet }) => {
             className={`absolute mt-5 mx-5 border-2 border-red-500 rounded-full text-lg ${
               favorite[movie.id] ? "text-red-700" : "text-white"
             }`}
-            onClick={() => toggleFavorite(movie.id)}
+            onClick={() => toggleFavorite(movie.id, movie.title)}
           />
           <img
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
@@ -74,6 +91,7 @@ const MovieCard = ({ SearchResults, movieSet }) => {
           </div>
         </div>
       ))}
+      </div>
     </>
   );
 };

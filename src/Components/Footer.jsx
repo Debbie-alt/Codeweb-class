@@ -1,4 +1,7 @@
 import React from 'react';
+import insta from '../assets/instaicon.png'
+import x from '../assets/x.png'
+
 
 const Footer = () => {
   return (
@@ -8,6 +11,11 @@ const Footer = () => {
           <div className="text-white text-center md:text-left text-sm">
             <p>&copy; {new Date().getFullYear()} MovAtti</p>
           </div>
+            <div className='flex'>
+               <img src={insta} alt="" className='w-8' />
+               <img src={x} alt="" className='w-8' />
+
+            </div>
           <div className="mt-4 md:mt-0">
             <ul className="flex justify-center text-sm md:justify-end space-x-4">
               <li>
