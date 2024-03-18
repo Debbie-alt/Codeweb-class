@@ -17,14 +17,20 @@ const MovieCard = ({ SearchResults, movieSet }) => {
       const updatedFavorites = { ...prevFavorites };
       if (updatedFavorites[movieId]) {
         delete updatedFavorites[movieId];
+        setPopupMessage(`${movieName} removed from favorites.`);
+        setPopup('flex');
+        setTimeout(() => {
+          setPopup('hidden')
+        }, 2500);
       } else {
         updatedFavorites[movieId] = true;
-      }
-      setPopupMessage(`${movieName} added to favorites.`);
+        setPopupMessage(`${movieName} added to favorites.`);
       setPopup('flex');
       setTimeout(() => {
         setPopup('hidden')
-      }, 2000);
+      }, 2500);
+      }
+      
       return updatedFavorites;
     });
   };
