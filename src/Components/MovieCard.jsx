@@ -10,6 +10,7 @@ const MovieCard = ({ SearchResults, movieSet }) => {
   const [favorite, setFavorite] = useState({});
   const [Popup, setPopup] = useState('hidden')
   const [popupMessage, setPopupMessage] = useState("");
+  const [toastColor, setToastColor]  = useState('')
 
   
   const toggleFavorite = (movieId, movieName) => {
@@ -18,14 +19,16 @@ const MovieCard = ({ SearchResults, movieSet }) => {
       if (updatedFavorites[movieId]) {
         delete updatedFavorites[movieId];
         setPopupMessage(`${movieName} removed from favorites.`);
-        setPopup('flex');
+        setPopup('flex')
+        setToastColor('border-l-red-500');
         setTimeout(() => {
           setPopup('hidden')
         }, 2500);
       } else {
         updatedFavorites[movieId] = true;
         setPopupMessage(`${movieName} added to favorites.`);
-      setPopup('flex');
+      setPopup('flex')
+      setToastColor('border-l-green-500');
       setTimeout(() => {
         setPopup('hidden')
       }, 2500);
@@ -60,7 +63,7 @@ const MovieCard = ({ SearchResults, movieSet }) => {
 
   return (
     <>
-      <PopUp movieName={movieSet.title} PopUp={Popup} popupMessage={popupMessage}/>
+      <PopUp movieName={movieSet.title} PopUp={Popup} popupMessage={popupMessage} setPopup={setPopup} toastColor={toastColor}/>
       <div className="gap-10 grid grid-cols-1 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
       {allMovies.map((movie) => (
