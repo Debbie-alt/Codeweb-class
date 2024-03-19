@@ -5,6 +5,10 @@ import Navbar from "./Navbar";
 import { IoArrowBack } from "react-icons/io5";
 import Footer from "./Footer";
 import { Link, useNavigate } from "react-router-dom";
+import { ImPrevious2 } from "react-icons/im";
+import { BiSolidMovie } from "react-icons/bi";
+
+
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -51,7 +55,7 @@ const MovieDetails = () => {
       {movies && movies.backdrop_path && (
         <section className="py-3 bg-black ">
           <div className="flex  mx-10 space-x-2 text-yellow-500 font-semibold">
-            <IoArrowBack />
+            <ImPrevious2 />
 
             <Link to="/" className=" text-sm font-medium ">
               {" "}
@@ -81,9 +85,7 @@ const MovieDetails = () => {
                        <p className="text-yellow-400 flex space-x-5">{movies.runtime}  <span>&nbsp;Minutes</span></p>
                      </div>
                      <p className="text-xs text-white mt-5 leading-5">{movies.overview}</p>
-                      
-
-
+                         <a href={movies.homepage} target="_blank" className="p-3  bg-green-800 text-white text-xs mt-5 rounded-md  text-center"><button className="flex"> <BiSolidMovie  className="text-lg  text-yellow-500"/> &nbsp; &nbsp;Watch Here</button></a>
                    </section>{" "}
               </div>
             </figure>
