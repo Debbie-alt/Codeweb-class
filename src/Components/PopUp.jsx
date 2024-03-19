@@ -10,7 +10,7 @@ const PopUp = ({movieName, PopUp, popupMessage, setPopup, toastColor}) => {
             AOS.init();
           }, [])
   return (
-      <div className={`bg-white flex justify-between shadow-lg border-l-8 ${toastColor}  w-3/4 md:w-1/2 ${PopUp} mx-auto rounded-lg top-0 p-5`} data-aos="fade-left" data-aos-delay="500"> 
+      <div className={`bg-white toast flex justify-between shadow-lg border-l-8 ${toastColor}  w-3/4 md:w-1/2 ${PopUp} mx-auto rounded-lg top-0 p-5`} > 
 
 
       {popupMessage}

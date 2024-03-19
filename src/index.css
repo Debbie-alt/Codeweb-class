@@ -19,12 +19,30 @@
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
+.toast{
+  animation: slideIn 0.5s forwards; /* Animation to slide in */
 
-  /* @media (max-width: 600px) {
-    .text {
-      font-size: 2px;
-    }
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
   }
-   */
+  to {
+    transform: translateX(0);
+  }
+}
 
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+
+.toast.show {
+  top: 20px; /* Bring on-screen */
+}
 
