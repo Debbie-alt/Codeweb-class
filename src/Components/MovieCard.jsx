@@ -73,7 +73,7 @@ const MovieCard = ({ SearchResults, movieSet }) => {
          
         >
           <FaHeart
-            className={`absolute mt-5 mx-5 border-2 border-red-500 rounded-full text-lg ${
+            className={`absolute mt-5 mx-5  text-lg ${
               favorite[movie.id] ? "text-red-700" : "text-white"
             }`}
             onClick={() => toggleFavorite(movie.id, movie.title)}
